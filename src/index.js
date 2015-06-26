@@ -89,7 +89,7 @@ class BotApi {
         this._secret = hat();
 
         request.post(this._getRequestUri('setWebhook', {
-            secret: this._secret
+            url: `${url}?${qs.stringify({secret: this._secret})}`
         }), callback);
 
         return this;
