@@ -25,6 +25,14 @@ class BotApi {
         this._api_key = (typeof api_key === 'string') ? api_key : null;
     }
 
+    get debug() {
+        return request.debug;
+    }
+
+    set debug(debug) {
+        request.debug = debug;
+    }
+
     /**
      * Get bot's user information.
      *

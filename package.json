@@ -1,6 +1,6 @@
 {
   "name": "telegram-bot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A node implementation of the Telegram bot API",
   "private": true,
   "main": "dist/index.js",
