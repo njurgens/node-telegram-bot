@@ -10,11 +10,19 @@ import qs from 'querystring';
 class BotApi {
 
     constructor(api_key) {
-        this._api_key = api_key;
+        this.api_key = api_key;
     }
 
     get webhook_secret() {
         return this._secret;
+    }
+
+    get api_key() {
+        return this._api_key;
+    }
+
+    set api_key(api_key) {
+        this._api_key = (typeof api_key === 'string') ? api_key : null;
     }
 
     /**
@@ -432,6 +440,10 @@ class BotApi {
     }
 
     _getRequestUri(method, query_params) {
+        if (this._api_key === null) {
+            throw Error('API key is not set!');
+        }
+
         let query = qs.stringify(query_params);
         return `https://api.telegram.org/bot${this._api_key}/${method}?${query}`;
     }
